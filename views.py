@@ -25,6 +25,7 @@ def edad_usuario_quintavista(request, edad):
 #funciono pero a mipagina no le va a servir mucho la edad asi que no puse un f stream
 
 def pag_inicio(request):
+
    archivo=open(r"C:\Users\PC\Desktop\PYTHON\TPfinal\tpfinal_axel\tpfinal_axel\templates\iniciopag.html", 'r')
    plantilla= template(archivo.read())
 
