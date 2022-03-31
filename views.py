@@ -5,6 +5,7 @@ from django.template import Template, Context, loader
 from datetime import date, datetime
 
 
+
 def primervista (request):
     return HttpResponse("Gimnasio Squat")
 
@@ -27,18 +28,18 @@ def edad_usuario_quintavista(request, edad):
 def pag_inicio(request):
     archivo=open(r"C:\Users\PC\Desktop\PYTHON\TPfinal\tpfinal_axel\tpfinal_axel\templates\iniciopag.html", 'r')
    
-    dic_context={"compania ": compania, "lafecha": fechayhora, "servicios": listado_servicios}
-
     compania ="Gimnasio SQUAT"
     fechayhora = datetime.now()
     listado_servicios =["equipos,cardio,funcional, servicios de musculacion,yoga,GAP, zumba, bike"]
 
-    plantilla= template(archivo.read())
+    dic_context={'compania': compania, "lafecha": fechayhora, "servicios":  listado_servicios}
 
-    archivo.close
+    plantilla= template(archivo.read())
 
     contexto= context(dic_context)
 
     documento=plantilla.render(contexto)
+
+    archivo.close
 
     return HttpResponse(documento)

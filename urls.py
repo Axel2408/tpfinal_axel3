@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tpfinal_axel.views import primervista, segundavista,diahora_tercervista,nombre_cuartavista, edad_usuario_quintavista, pag_inicio
+from tpfinal_axel.views import primervista, segundavista,diahora_tercervista,nombre_cuartavista, edad_usuario_quintavista, pag_inicio,template
 
 
 urlpatterns = [
