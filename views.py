@@ -2,7 +2,7 @@ from multiprocessing import context
 from tempfile import template
 from django.http import HttpResponse
 from django.template import Template, Context, loader
-from datetime import datetime
+from datetime import date, datetime
 
 
 def primervista (request):
@@ -25,14 +25,20 @@ def edad_usuario_quintavista(request, edad):
 #funciono pero a mipagina no le va a servir mucho la edad asi que no puse un f stream
 
 def pag_inicio(request):
+    archivo=open(r"C:\Users\PC\Desktop\PYTHON\TPfinal\tpfinal_axel\tpfinal_axel\templates\iniciopag.html", 'r')
+   
+    dic_context={"compania ": compania, "lafecha": fechayhora, "servicios": listado_servicios}
 
-   archivo=open(r"C:\Users\PC\Desktop\PYTHON\TPfinal\tpfinal_axel\tpfinal_axel\templates\iniciopag.html", 'r')
-   plantilla= template(archivo.read())
+    compania ="Gimnasio SQUAT"
+    fechayhora = datetime.now()
+    listado_servicios =["equipos,cardio,funcional, servicios de musculacion,yoga,GAP, zumba, bike"]
 
-   archivo.close
+    plantilla= template(archivo.read())
 
-   contexto= context()
+    archivo.close
 
-   documento=plantilla.render(contexto)
+    contexto= context(dic_context)
 
-   return HttpResponse(documento)
+    documento=plantilla.render(contexto)
+
+    return HttpResponse(documento)

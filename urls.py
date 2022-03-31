@@ -25,6 +25,6 @@ path('segundo/', segundavista),
 path('tercero/', diahora_tercervista),
 path('cuarto/<nombre>',nombre_cuartavista ), 
 path('quinto/<edad>',edad_usuario_quintavista ),
-path('inicio/', pag_inicio)
+path('inicio/', pag_inicio),
 ]
     
