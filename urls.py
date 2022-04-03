@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tpfinal_axel.views import primervista, segundavista,diahora_tercervista,nombre_cuartavista, edad_usuario_quintavista, pag_inicio
+from tpfinal_axel.views import primervista, segundavista,diahora_tercervista,nombre_cuartavista, pag_inicio
 
 
 urlpatterns = [
@@ -24,7 +24,6 @@ path('primero/', primervista),
 path('segundo/', segundavista),
 path('tercero/', diahora_tercervista),
 path('cuarto/<nombre>',nombre_cuartavista ), 
-path('quinto/<edad>',edad_usuario_quintavista ),
 path('inicio/', pag_inicio),
 ]
     

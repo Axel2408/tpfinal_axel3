@@ -21,9 +21,7 @@ def nombre_cuartavista(request, nombre):
     return HttpResponse(f"bienvenido/a {nombre}")
 #ver el tema del nombre, no me aparece
 
-def edad_usuario_quintavista(request, edad):
-    anio_nac= 2022- int(edad)
-    return HttpResponse("la edad no es un limite para lograr tus objetivos, puedes hacerlo")
+
 #funciono pero a mipagina no le va a servir mucho la edad asi que no puse un f stream
 
 def pag_inicio(request):
@@ -31,15 +29,19 @@ def pag_inicio(request):
    
     compania ="Gimnasio SQUAT"
     fechayhora = datetime.now()
-    listado_servicios =["equipos,cardio,funcional, servicios de musculacion,yoga,GAP, zumba, bike"]
+    listado_servicios =["equipos","cardio","funcional", "servicios de musculacion","yoga","GAP", "zumba", "bike"]
 
-    dic_context={'compania': compania, "lafecha": fechayhora, "servicios":  listado_servicios}
+    frase=("la edad no es un limite para lograr tus objetivos, puedes hacerlo")
+
+    dic_context={'compania': compania, "lafecha": fechayhora, "servicios":  listado_servicios, "frase": frase}
+
+    
 
     plantilla = Template(archivo.read())
 
     archivo.close()
 
-    context = Context()
+    context = Context(dic_context)
 
     documento = plantilla.render(context)
     
