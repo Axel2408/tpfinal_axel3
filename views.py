@@ -1,5 +1,6 @@
 from multiprocessing import context
 from tempfile import template
+from tkinter.filedialog import Open
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from datetime import date, datetime
@@ -26,7 +27,7 @@ def edad_usuario_quintavista(request, edad):
 #funciono pero a mipagina no le va a servir mucho la edad asi que no puse un f stream
 
 def pag_inicio(request):
-    archivo=open(r"C:\Users\PC\Desktop\PYTHON\TPfinal\tpfinal_axel\tpfinal_axel\templates\iniciopag.html", 'r')
+    archivo=open (r"C:\Users\PC\Desktop\PYTHON\TPfinal\tpfinal_axel\tpfinal_axel\templates\iniciopag.html", 'r')
    
     compania ="Gimnasio SQUAT"
     fechayhora = datetime.now()
@@ -34,12 +35,12 @@ def pag_inicio(request):
 
     dic_context={'compania': compania, "lafecha": fechayhora, "servicios":  listado_servicios}
 
-    plantilla= template(archivo.read())
+    plantilla = Template(archivo.read())
 
-    contexto= context(dic_context)
+    archivo.close()
 
-    documento=plantilla.render(contexto)
+    context = Context()
 
-    archivo.close
-
+    documento = plantilla.render(context)
+    
     return HttpResponse(documento)
